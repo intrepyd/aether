@@ -1,0 +1,46 @@
+{
+  "name": "aether",
+  "version": "0.0.0",
+  "description": "Thin wrapper for gpt4all",
+  "main": "src/index.ts",
+  "bin": {
+    "aether": "bin/cli.js"
+  },
+  "scripts": {
+    "dev": "bin/cli.js",
+    "commit": "commit",
+    "release": "release-it",
+    "husky": "husky install",
+    "lint": "eslint --cache --ext .ts,.tsx src",
+    "typecheck": "tsc --noEmit"
+  },
+  "author": "Intrepyd team <team@intrepyd.co>",
+  "license": "MIT",
+  "dependencies": {
+    "gpt4all": "^1.0.0",
+    "ora": "^6.3.0",
+    "tsx": "^3.12.6"
+  },
+  "devDependencies": {
+    "ares": "github:intrepyd/ares#0.1.4",
+    "@types/node": "^18.15.11"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "skipChecks": true,
+      "publish": false
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "conventionalcommits",
+        "infile": "CHANGELOG.md"
+      }
+    }
+  }
+}
