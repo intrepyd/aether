@@ -15,7 +15,7 @@ async function open() {
   open.stop();
 }
 
-async function ask(prompt: string) {
+async function ask(prompt) {
   console.log(`❓ ${prompt}\n`);
 
   const loading = ora("Loading").start();
@@ -26,16 +26,15 @@ async function ask(prompt: string) {
 
 export async function run() {
   try {
-    const arguments_ = process.argv.slice(2);
+    const prompt = process.argv.slice(2).join(" ");
     await init();
     await open();
-    await ask(arguments_[0]);
+    await ask(prompt);
 
     gpt4all.close();
   } catch (error) {
     console.error(error);
   }
 
-  // eslint-disable-next-line unicorn/no-process-exit
   process.exit();
 }

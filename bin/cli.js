@@ -1,2 +1,5 @@
-#!/usr/bin/env tsx
-require("../src/index.ts").run();
+#!/usr/bin/env node
+
+import { run } from "../src/index.js";
+
+run();
